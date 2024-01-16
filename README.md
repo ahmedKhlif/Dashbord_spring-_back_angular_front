@@ -63,15 +63,7 @@ Ensure you have the following installed:
    spring.datasource.username=your_database_username
    spring.datasource.password=your_database_password
 
-## Installation
-- ** Frontend (Angular)**
-cd frontend
-npm install
-ng serve
 
-- **Backend (Spring Boot)**
-cd backend
-./mvnw spring-boot:run
 ## Usage
 
 1. Access the Angular app at [http://localhost:4200](http://localhost:4200).
