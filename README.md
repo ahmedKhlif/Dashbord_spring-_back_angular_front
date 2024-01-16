@@ -1,4 +1,4 @@
-# Dashbord_spring-_back_angular_front
+# dashboard_spring_back_angular_front
 
 This project is a dashboard application developed using Spring Boot for the back end, Angular for the front end, and MySQL with XAMPP as the database server.
 
@@ -63,13 +63,13 @@ Ensure you have the following installed:
    spring.datasource.username=your_database_username
    spring.datasource.password=your_database_password
 
-### Installation
-# Frontend (Angular)
+## Installation
+- ** Frontend (Angular)**
 cd frontend
 npm install
 ng serve
 
-# Backend (Spring Boot)
+- **Backend (Spring Boot)**
 cd backend
 ./mvnw spring-boot:run
 ## Usage
