@@ -1,0 +1,33 @@
+<!-- add-category.component.html -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <app-sidebar></app-sidebar>
+    <!-- Main wrapper -->
+    <div class="body-wrapper">
+        <!-- Header Start -->
+        <app-header></app-header>
+        <!-- Header End -->
+        <div class="container-fluid flex-grow-1">
+            <div class="main-content">
+                <div class="card">
+                    <div class="card-body">
+                      <h1 class="text-center mb-3">Add  new Category</h1>
+                      <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+                        <div class="form-group">
+                          <label for="code" class="form-label">Code:</label>
+                          <input type="text" id="code" name="code" class="form-control" required [(ngModel)]="categoryModel.code">
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="libelle" class="form-label">Libelle:</label>
+                          <input type="text" id="libelle" name="libelle" class="form-control" required [(ngModel)]="categoryModel.libelle">
+                        </div>
+                  
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Add</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  

@@ -1,0 +1,118 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <app-sidebar></app-sidebar>
+    <!-- Main wrapper -->
+    <div class="body-wrapper">
+        <!-- Header Start -->
+        <app-header></app-header>
+        <!-- Header End -->
+        <div class="container-fluid flex-grow-1">
+            <div class="main-content">
+                <div *ngIf="modeEdition && showForm" class="cards">
+                
+                    <div class="card-body">
+                        <h1 class="text-center">Update Product</h1>
+                        <form  #editForm="ngForm" (ngSubmit)="onEditSubmit()">
+                                <div class="form-group">
+                                    <label for="id" class="form-label">Id:</label>
+                                    <input id="id" name="id" type="text"  class="form-control" [(ngModel)]="productModel.id" required readonly>
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label for="designation">Designation:</label>
+                                    <input type="text" id="designation" name="designation" class="form-control" [(ngModel)]="productModel.designation" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="code">Code:</label>
+                                    <input type="text" id="code" name="code" class="form-control" [(ngModel)]="productModel.code" required>
+                                  </div>
+                    
+                                <div class="form-group">
+                                    <label for="prix" class="form-label">Prix:</label>
+                                    <input type="text" name="prix"  class="form-control" [(ngModel)]="productModel.prix">
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label for="quantite" class="form-label">Quantity:</label>
+                                    <input type="text" name="quantite" class="form-control"  [(ngModel)]="productModel.quantite">
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label for="date_achat" class="form-label">Purchase Date:</label>
+                                    <input type="text" name="date_achat"  class="form-control"  [(ngModel)]="productModel.date_achat">
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label for="categorie_id" class="form-label">Category :</label>
+                                    <input type="text" name="categorie_id"  class="form-control" [(ngModel)]="productModel.categorie_id.libelle" >
+                                </div>
+                    
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-primary"  style="margin-right:20px;">Edit</button>
+                                    <button type="button" class="btn btn-danger" (click)="annuler()" style="margin-right: 20px;">Cancel</button>
+                                    
+                                </div>
+                            </form>
+                    
+                    </div>                    
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h1>List of products</h1>
+                
+                        <!-- Search Bar -->
+                       <!-- Search Bar -->
+<div class="search-bar-container">
+    <div class="col-md-6 offset-md-3 mb-3">
+        <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="searchTerm" (input)="filterProduits()" />
+    </div>
+</div>
+
+<!-- No data found message -->
+<div class="no-data-message mb-3" *ngIf="showNoDataFound" style="color: red; font-size: large;font-family: 'Courier New';text-align: center;">No data found</div>
+
+                
+                        <!-- Bootstrap table styling -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Designation</th>
+                                    <th>Code</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th> Purchase Date</th>
+                                    <th>Category </th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of products">
+                                  <ng-container *ngIf="product">
+                                    <td>{{ product.id }}</td>
+                                    <td>{{ product.designation }}</td>
+                                    <td>{{ product.code }}</td>
+                                    <td>{{ product.prix }}</td>
+                                    <td>{{ product.quantite }}</td>
+                                    <td>{{ product.date_achat | date:'yyyy-MM-dd' }}</td>
+                                    <td>{{ product.categorie_id.libelle }}</td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="editerProduit(product)">Edit</button>
+                                    </td>
+                                    <td>
+                                      <button class="btn btn-danger" (click)="supprimerProduit(product)">Delete</button>
+                                    </td>
+                                  </ng-container>
+                                </tr>
+                              </tbody>
+                              
+                        </table>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,70 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <app-sidebar></app-sidebar>
+    <!-- Main wrapper -->
+    <div class="body-wrapper">
+        <!-- Header Start -->
+        <app-header></app-header>
+        <!-- Header End -->
+        <div class="container-fluid flex-grow-1">
+            <div class="main-content">
+                <div *ngIf="modeEdition && showForm"  class="card">
+                    <div class="card-body">
+                        <h1 class="text-center">Update Category</h1>
+                        <form (ngSubmit)="onEditSubmit()">
+                         <div class="form-group">
+                            <label for="id" class="form-label">ID:</label>
+                            <input id="id" name="id" type="text" class="form-control" required readonly [(ngModel)]="categoryModel.id">
+                          </div>
+                      
+                          <div class="form-group">
+                            <label for="libelle" class="form-label">Libelle:</label>
+                            <input type="text" name="libelle" class="form-control" [(ngModel)]="categoryModel.libelle">
+                          </div>
+                      
+                          <div class="form-group">
+                            <label for="code" class="form-label">Code:</label>
+                            <input type="text" name="code" class="form-control" [(ngModel)]="categoryModel.code">
+                          </div>
+                      
+                          <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Edit</button>
+                            <button type="button" class="btn btn-secondary" (click)="annuler()">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h2 class="text-center mb-3">List of category</h2>
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Code</th>
+                            <th class="text-center">Libelle</th>
+                            <th colspan="2" class="text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categories">
+                              <td class="text-center">{{ category.id }}</td>
+                              <td class="text-center">{{ category.code }}</td>
+                              <td class="text-center">{{ category.libelle }}</td>
+                              <td class="text-center">
+                                <button class="btn btn-primary" (click)="onEdit(category?.id)">Edit</button>
+                              </td>
+                              <td class="text-center">
+<!-- Assuming category has a 'libelle' property -->
+<button class="btn btn-danger" (click)="onDelete(category?.id, category?.libelle)">Delete </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

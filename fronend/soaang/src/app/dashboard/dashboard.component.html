@@ -1,0 +1,181 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <app-sidebar></app-sidebar>
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <app-header></app-header>
+            <!--  Header End -->
+            <div class="container-fluid flex-grow-1">
+                <!--  Row 1 -->
+                <!-- Row 1 -->
+                <div class="row">
+                    <!-- Chart Carousel -->
+                    <div class="col-lg-8 ">
+                        <div id="chartCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Chart 1 -->
+                                <div class="carousel-item active">
+                                    <div class="col-12 ">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                                                    <div class="mb-3 mb-sm-0">
+                                                        <h5 class="card-title mb-9 fw-semibold">Most Favored Products
+                                                            Globally</h5>
+                                                    </div>
+                                              
+                                                </div>
+                                                <div>
+                                                    <canvas id="barChart"></canvas>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Chart 2 -->
+                                <div class="carousel-item">
+                                    <div class="col-12">
+                                            <div class="card-body">
+                                                <div
+                                                    class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                                                    <div class="mb-3 mb-sm-0">
+                                                        <h5 class="card-title mb-9 fw-semibold">Most Sold Products
+                                                          Globally</h5>
+                                                    </div>
+                                                
+                                                </div>
+                                                <div>
+                                                    <canvas id="barChart1"></canvas>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#chartCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#chartCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <div id="chartCarousel1" class="carousel slide" data-bs-ride="carousel">
+                                  <div class="carousel-inner">
+                                      <div class="carousel-item active">
+                                          <!-- Yearly Breakup -->
+                                          <div class="card overflow-hidden">
+                                              <div class="card-body p-4">
+                                                  <h5 class="card-title mb-9 fw-semibold">Products out Stock</h5>
+                                                  <div class="row align-items-center">
+                                                      <div class="col-12">
+                                                          <div class="d-flex justify-content-center">
+                                                              <canvas id="doughnutChart"></canvas>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                  
+                                      <div class="carousel-item">
+                                          <!-- Yearly Breakup -->
+                                          <div class="card overflow-hidden">
+                                              <div class="card-body p-4">
+                                                  <h5 class="card-title mb-9 fw-semibold">Products on Stock</h5>
+                                                  <div class="row align-items-center">
+                                                      <div class="col-12">
+                                                          <div class="d-flex justify-content-center">
+                                                              <canvas id="radarChart1"></canvas>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <button class="carousel-control-prev" type="button" data-bs-target="#chartCarousel1" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                  </button>
+                                  <button class="carousel-control-next" type="button" data-bs-target="#chartCarousel1" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- Monthly Earnings -->
+                    <div class="card w-100">
+                      <div class="card-body">
+                        <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                          <div class="mb-3 mb-sm-0">
+                            <h5 class="card-title fw-semibold">Most Favored Products between two years</h5>
+                          </div>
+                          <div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <select id="yearSelector1" class="form-select" (change)="onYearChangeFavoredProduct($event)">
+                                  <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+                                </select>
+                              </div>
+                              <div class="col-md-6">
+                                <select id="yearSelector2" class="form-select" (change)="onYearChangeFavoredProduct($event)">
+                                  <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+                                </select>
+                              </div>
+                            </div>
+                          
+                          </div>
+                        </div>
+                        <div>
+                          <canvas id="lineChart" height="50"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <div
+                                    class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                                    <div class="mb-3 mb-sm-0">
+                                        <h5 class="card-title fw-semibold">Most sold Products Yearly</h5>
+                                    </div>
+                                    <div>
+                                        <select id="yearSelector" class="form-select"
+                                            (change)="onYearChangeSoldProducts($event)">
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2019">2019</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <canvas id="barChartSoldProducts"  height="100"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    

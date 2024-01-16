@@ -1,0 +1,52 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<!-- Sidebar Start -->
+<!-- Sidebar Start -->
+<app-sidebar></app-sidebar>
+<!--  Main wrapper -->
+<div class="body-wrapper">
+  <!--  Header Start -->
+<app-header></app-header>
+  <!--  Header End -->
+  <div class="container-fluid flex-grow-1">
+    <form class="card" (ngSubmit)="onAddProductSubmit()">
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="designation" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="designation" name="designation" [(ngModel)]="productModel.designation" required />
+          </div>
+          <div class="mb-3">
+            <label for="prix" class="form-label">Price</label>
+            <input type="number" class="form-control" id="prix" name="prix" [(ngModel)]="productModel.prix" required />
+          </div>
+          <div class="mb-3">
+            <label for="code" class="form-label">Product Code</label>
+            <input type="text" class="form-control" id="code" name="code" [(ngModel)]="productModel.code" required />
+          </div>
+          <div class="mb-3">
+            <label for="quantite" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantite" name="quantite" [(ngModel)]="productModel.quantite" required />
+          </div>
+          <div class="mb-3">
+            <label for="date_achat" class="form-label">Purchase Date</label>
+            <input type="date" class="form-control" id="date_achat" name="date_achat" [(ngModel)]="productModel.date_achat" required />
+          </div>
+          <div class="mb-3">
+            <label for="categorie" class="form-label">Category</label>
+            <!-- Assuming you have a dropdown for selecting the category -->
+<select [(ngModel)]="selectedCategoryId" name="category">
+  <option *ngFor="let category of categories" [value]="category.id">{{ category.libelle }}</option>
+</select>
+
+          </div>
+          
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="margin-right: 10px;">ADD</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+</div>
+
+

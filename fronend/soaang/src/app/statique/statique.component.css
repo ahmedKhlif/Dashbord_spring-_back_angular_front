@@ -1,0 +1,19 @@
+/* statique.component.css */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.designation {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.favCount {
+  color: #28a745; /* or any color you prefer */
+}
